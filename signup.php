@@ -26,7 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     else{
 
         if ($password == $cpassword)
+
         {
+            
            $sql = "INSERT INTO `users` (`username`, `password`, `dt`) VALUES ('$username', '$password', current_timestamp())";
            $insert_result = mysqli_query($conn, $sql);
            
@@ -34,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
            {
                $showalert = true;
            }
-       }
-       else
-       {
-        $showerror="password do not match";
-        }    
+           }
+           else
+           {
+           $showerror="password do not match";
+           }    
 
 }
 }

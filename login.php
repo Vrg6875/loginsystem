@@ -20,23 +20,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
         $select_result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($select_result) == 1) {
+          if (mysqli_num_rows($select_result) == 1) {
             $loginalert = true;
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
             header("location: welcome.php"); // Redirect to welcome.php page
             exit; // Stop further execution
-        } 
-        else
-         {
+          } 
+          else
+          {
             $loginerror = "Password is incorrect";
-         }
+          }
     } 
-    else 
-    {
-        $loginerror = "Username is incorrect";
-    }
+    else {
+    $loginerror = "Username is incorrect";
+         }
 }
 ?>
 <!DOCTYPE html>
